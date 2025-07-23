@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wiki Index</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<h1>Wiki Index</h1>
+	
+	<div class="create-new">
+		<button class="main-btn" onclick="showCreateForm()">Create New Page</button>
+		<div class="create-form" id="createForm">
+			<input type="text" id="pageTitle" placeholder="Page name">
+			<button onclick="createPage()">Go</button>
+			<button onclick="hideCreateForm()">Cancel</button>
+		</div>
+	</div>
+	
+	<script>
+		function showCreateForm() {
+			document.getElementById('createForm').classList.add('show');
+			document.getElementById('pageTitle').focus();
+		}
+		
+		function hideCreateForm() {
+			document.getElementById('createForm').classList.remove('show');
+			document.getElementById('pageTitle').value = '';
+		}
+		
+		function createPage() {
+			const pageTitle = document.getElementById('pageTitle').value.trim();
+			
+			if (!pageTitle) {
+				alert('Please enter a page name');
+				return;
+			}
+			
+			const validTitle = /^[a-zA-Z0-9]+$/.test(pageTitle);
+			if (!validTitle) {
+				alert('Page name can only contain letters and numbers');
+				return;
+			}
+			
+			window.location.href = '/edit/' + encodeURIComponent(pageTitle);
+		}
+		
+		document.getElementById('pageTitle').addEventListener('keypress', function(e) {
+			if (e.key === 'Enter') {
+				createPage();
+			}
+		});
+	</script>
+	
+	<div class="page-list">
+		<h2>Available Pages:</h2>
+		{{if .Pages}}
+			<ul>
+				{{range .Pages}}
+				<li>
+					<a href="/view/{{.}}">{{.}}</a>
+					<span style="margin-left: 15px; color: #666;">
+						[<a href="/edit/{{.}}" style="color: #666;">edit</a>]
+					</span>
+				</li>
+				{{end}}
+			</ul>
+		{{else}}
+			<p>No pages found. <a href="/edit/Home">Create your first page</a>!</p>
+		{{end}}
+	</div>
+</body>
+</html>

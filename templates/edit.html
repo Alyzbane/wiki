@@ -1,6 +1,19 @@
-<h1>Editing {{.Title}}</h1>
-
-<form action="/save/{{.Title}}" method="POST">
-<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
-<div><input type="submit" value="Save"></div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Editing {{.Title}}</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<h1>Editing {{.Title}}</h1>
+	<div class="nav-links">
+		[<a href="/view/{{.Title}}">view</a>] 
+		[<a href="/">index</a>]
+	</div>
+	<form action="/save/{{.Title}}" method="POST">
+		<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+		<div><input type="submit" value="Save"></div>
+	</form>
+</body>
+</html>

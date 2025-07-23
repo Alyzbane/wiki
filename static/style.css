@@ -1,0 +1,115 @@
+/* Minimalistic Wiki Styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+	line-height: 1.6;
+}
+
+h1 {
+	color: #333;
+}
+
+/* Button styles - minimalistic with borders */
+button, input[type="submit"] {
+	padding: 8px 15px;
+	border: 1px solid #333;
+	background: white;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+button:hover, input[type="submit"]:hover {
+	background: #f0f0f0;
+}
+
+.main-btn {
+	padding: 10px 20px;
+	border: 2px solid #333;
+	font-size: 16px;
+}
+
+/* Links */
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Navigation links */
+.nav-links {
+	margin: 10px 0;
+}
+
+/* Forms */
+textarea, input[type="text"] {
+	padding: 8px;
+	border: 1px solid #333;
+	font-size: 14px;
+}
+
+textarea {
+	width: 100%;
+	max-width: 600px;
+	height: 200px;
+	resize: vertical;
+}
+
+/* Page list */
+.page-list {
+	margin: 20px 0;
+}
+
+.page-list ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.page-list li {
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+/* Create new page section */
+.create-new {
+	margin: 20px 0;
+}
+
+.create-form {
+	margin-top: 15px;
+	display: none;
+}
+
+.create-form.show {
+	display: block;
+}
+
+.create-form input[type="text"] {
+	width: 200px;
+}
+
+.create-form button {
+	margin-left: 10px;
+}
+
+/* Edit form */
+.edit-form {
+	display: none;
+	margin: 20px 0;
+	padding: 15px;
+	border: 1px solid #333;
+	max-width: 80%;
+}
+
+.edit-form textarea {
+	width: 100%;
+	max-width: 500px;
+	height: 150px;
+}
+
+.edit-form button, .edit-form input[type="submit"] {
+	margin-right: 10px;
+}
